@@ -1,7 +1,7 @@
 import java.util.Vector;
-import edu.princeton.cs.algs4.*;
 import java.awt.Color;
 
+@SuppressWarnings( "deprecation" )
 // Class for placing of queens on a grid of cells
 public class Board {
     private int size;   // Board dimensions (size * size)
