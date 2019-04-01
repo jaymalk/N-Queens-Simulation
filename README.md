@@ -1,4 +1,4 @@
-##N-Queens Simulation
+## N-Queens Simulation
 
 Trying to place _n-queens_ on a chess board such that no queen is in capacity to _terminate another_ keeping in mind the _rules of chess_.
 **The queens are placed, the complete board is visually depicted.**
@@ -7,7 +7,7 @@ Trying to place _n-queens_ on a chess board such that no queen is in capacity to
 
 
 
-###Usage
+### Usage
 
 *Following parameters are needed to run the simulation...*
 
