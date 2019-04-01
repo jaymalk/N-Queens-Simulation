@@ -1,12 +1,13 @@
 import java.util.Vector;
-import java.util.Random;
+import edu.princeton.cs.algs4.*;
+import java.awt.Color;
 
 // Class for placing of queens on a grid of cells
 public class Board {
-    int size;   // Board dimensions (size * size)
-    Vector<Vector<Cell>> cells;     // Cells on the board
-    Vector<Queen> queens;      // Vector of queens placed so far
-    Random r = new Random();
+    private int size;   // Board dimensions (size * size)
+    private Vector<Vector<Cell>> cells;     // Cells on the board
+    private Vector<Queen> queens;      // Vector of queens placed so far
+    boolean useThread = true;
 
     // Constructor
     public Board(int size) {
@@ -19,6 +20,7 @@ public class Board {
                 temp.addElement(new Cell());
             cells.addElement(temp);
         }
+        drawScreen();
         // Initialising the queens vector
         queens = new Vector<>();
     }
@@ -64,8 +66,9 @@ public class Board {
         }
         if(queens.indexOf(q) == -1) {
             queens.add(q);
-            Thread.sleep(500);
-            draw();
+            if(useThread)
+                Thread.sleep(50);
+            drawCells();
         }
     }
 
@@ -180,6 +183,11 @@ public class Board {
         }
     }
 
+    // Getting the size of Board
+    public int size() {
+        return size;
+    }
+
     // Drawing the board
     public void draw() {
         System.out.println("\033[2J\033[H");
@@ -191,6 +199,34 @@ public class Board {
                     System.out.print(". ");
             System.out.println();
         }
+    }
 
+    // GUI related drawings
+    // Screen INIT & CLEAR
+    public void drawScreen() {
+        StdDraw.enableDoubleBuffering();
+        StdDraw.setCanvasSize(900, 900);
+        StdDraw.setXscale(-1, size+1);
+        StdDraw.setYscale(-1, size+1);
+        StdDraw.clear(StdDraw.BLACK);
+        StdDraw.show();
+    }
+    // Grid printing
+    public void drawCells() {
+        StdDraw.clear(StdDraw.BLACK);
+        for(int i=0; i<size; i++)
+            for(int j=0; j<size; j++) {
+                Cell curr = cells.get(i).get(j);
+                if(curr.hasQueen())
+                    StdDraw.setPenColor(StdDraw.YELLOW);
+                else if(curr.blocked())
+                    StdDraw.setPenColor(new Color(1.0f, 0.1f, 0.3f, Math.max(1.0f-(curr.queensOn()/5.0f), 0.4f)));
+                else
+                    StdDraw.setPenColor(StdDraw.WHITE);
+                StdDraw.filledCircle(i+0.5, j+0.5, 0.5);
+                StdDraw.setPenColor(StdDraw.BLACK);
+                StdDraw.circle(i+0.5, j+0.5, 0.5);
+            }
+        StdDraw.show();
     }
 }

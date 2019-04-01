@@ -3,7 +3,7 @@ import java.util.Vector;
 // Cell class for discrete positions on a board.
 public class Cell {
     private boolean blocked, queen;    // Whether a queen is placable on the system.
-    public Vector<Queen> placed;
+    private Vector<Queen> placed;
 
     // Constructor
     public Cell() {
@@ -46,7 +46,10 @@ public class Cell {
         }
         catch (Exception e) {
             // Do nothing, let pass...
-            // System.out.println("Queen not affecting the current cell...");
         }
+    }
+    // Total queens currently blocking it
+    public int queensOn() {
+        return placed.size();
     }
 }

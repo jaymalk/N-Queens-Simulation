@@ -4,7 +4,7 @@
 public class Queen {
     private int x_pos, y_pos;
     private Cell cll;
-    boolean placed = false;
+    private boolean placed = false;
 
     // Default Constructor
     public Queen() {
@@ -77,5 +77,10 @@ public class Queen {
         catch(Exception e) {
             return false;
         }
+    }
+
+    @Override
+    public int hashCode() {
+        return (String.valueOf(x_pos)+" "+String.valueOf(y_pos)).hashCode();
     }
 }
