@@ -1,3 +1,27 @@
-### N-Queens Problem Simulation
-Trying to place n queens on a chess board such that no queen is in capacity to terminate another keeping in mind the rules of chess.
-The queens are placed, the complete board is visually depicted.
+##N-Queens Simulation
+
+Trying to place _n-queens_ on a chess board such that no queen is in capacity to _terminate another_ keeping in mind the _rules of chess_.
+**The queens are placed, the complete board is visually depicted.**
+
+----
+
+
+
+###Usage
+
+*Following parameters are needed to run the simulation...*
+
+  - Size of Grid *(default : 8)*
+  - Total number of queens *(default : 8)*
+  - Fast-forward without delay
+
+----
+
+
+
+**Command Line Arguments** *(in the repo folder)*
+
+  - Build : `make` 
+  - Running : `java Simulator [grid_size no_queens] [no_pause]`
+  - Clean : `make clean`
+
