@@ -3,6 +3,8 @@
 Trying to place _n-queens_ on a chess board such that no queen is in capacity to _terminate another_ keeping in mind the _rules of chess_.
 **The queens are placed, the complete board is visually depicted.**
 
+The simulation uses the [Princeton Standard Library for Java](https://introcs.cs.princeton.edu/java/stdlib/), which is under the GNU General Public License, version 3 (GPLv3).
+
 ----
 
 
