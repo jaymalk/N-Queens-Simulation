@@ -21,7 +21,6 @@ public class Simulator {
         }
         try {
             boolean check = (args[2].equals("Fast") || args[2].equals("No_Thread") || args[2].equals("F"));
-            System.out.println(check + args[2]);
             if(check)
                 b.useThread = false;
         }
